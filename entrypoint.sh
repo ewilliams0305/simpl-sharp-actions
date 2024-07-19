@@ -32,4 +32,4 @@ fi
 
 echo "Created CLZ $clz_file_path"
 
-echo "clz_file=./bin/$2/$clz_file_name" >> $GITHUB_OUTPUT
+echo "clz_file=$clz_file_path" >> $GITHUB_OUTPUT
