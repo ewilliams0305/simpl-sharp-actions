@@ -35,4 +35,4 @@ fi
 echo "Created CLZ $clz_file_path"
 
 echo "clz_file=$clz_file_path" >> $GITHUB_OUTPUT
-echo "artifacts_path='/github/workspace/clz/' >> $GITHUB_OUTPUT
+echo "artifacts_path=/github/workspace/clz/ >> $GITHUB_OUTPUT
