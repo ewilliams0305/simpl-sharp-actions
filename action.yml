@@ -20,9 +20,12 @@ inputs:
 outputs:
   cpz_file:
     description: 'The location of the new CPZ file on the runner'
-    
+
   clz_file:
     description: 'The location of the new CLZ file on the runner'
+
+  artifacts_path:
+    description: 'Directory path containing all compiled Simpl Sharp CPZ and CLZ files'
 
 runs:
   using: 'docker'
