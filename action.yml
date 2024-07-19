@@ -1,16 +1,30 @@
 # action.yml
-name: 'Hello World'
+name: 'Simpl Sharp'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  project: 
+    description: 'Project file targeting the simplsharp SDK'
     required: true
-    default: 'World'
+    default: './**.csproj'
+  targets: 
+    description: 'Target dotnet framework'
+    required: false
+    default: 'net472'
+  configuration: 
+    description: 'Target configuration'
+    required: false
+    default: 'Release'
+    
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  cpz_file:
+    description: 'The location of the new CPZ file on the runner'
+  clz_file:
+    description: 'The location of the new CLZ file on the runner'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.project }}
+    - ${{ inputs.targets }}
+    - ${{ inputs.configuration }}
