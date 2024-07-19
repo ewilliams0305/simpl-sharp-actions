@@ -23,7 +23,7 @@ dotnet build "$csproj_file_path" -c "$3" -o "/github/workspace/bin/$2"
 echo "Target Project: $csproj_file_path"
 echo "Target Assembly: $dll_file_path"
 
-mkdir -pv "github/workspace/clz/$2"
+mkdir -pv "/github/workspace/clz/$2"
 
 dotnet simplsharp clz -p "$csproj_file_path" -a "$dll_file_path" -d "/github/workspace/clz/$2"
 
