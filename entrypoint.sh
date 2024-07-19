@@ -6,7 +6,7 @@ directory=$(dirname "$1")
 project_name=$(basename "$1" .csproj)
 clz_file="${project_name}.clz"
 
-dotnet dotnet tool install --global SimplSharp.Tool --version 0.2.0
+dotnet dotnet tool install --local SimplSharp.Tool --version 0.2.0 --create-manifest-if-needed 
 
 dotnet simplsharp targets -d /github/workspace/$directory
 
