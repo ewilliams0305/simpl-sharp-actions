@@ -14,6 +14,7 @@ dll_file_name="${project_name}.dll"
 clz_file_path="/github/workspace/clz/$2/$clz_file_name"
 dll_file_path="/github/workspace/bin/$2/$dll_file_name"
 
+
 dotnet dotnet tool install --local SimplSharp.Tool --version 0.2.0 --create-manifest-if-needed 
 
 dotnet simplsharp targets -d /github/workspace/$directory
@@ -35,4 +36,4 @@ fi
 echo "Created CLZ $clz_file_path"
 
 echo "clz_file=$clz_file_path" >> $GITHUB_OUTPUT
-echo "artifacts_path=/github/workspace/clz/" >> $GITHUB_OUTPUT
+echo "artifacts_path=clz/$2/$clz_file_name" >> $GITHUB_OUTPUT
