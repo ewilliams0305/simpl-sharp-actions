@@ -18,12 +18,14 @@ dotnet dotnet tool install --local SimplSharp.Tool --version 0.2.0 --create-mani
 
 dotnet simplsharp targets -d /github/workspace/$directory
 
-dotnet build $csproj_file_path -c $3 -o /github/workspace/bin/$2
+dotnet build "$csproj_file_path" -c "$3" -o "/github/workspace/bin/$2"
 
 echo "Target Project: $csproj_file_path"
 echo "Target Assembly: $dll_file_path"
 
-dotnet simplsharp clz -p $csproj_file_path -a $dll_file_path -d /github/workspace/clz/$2
+mkdir -p "github/workspace/clz/$2"
+
+dotnet simplsharp clz -p "$csproj_file_path" -a "$dll_file_path" -d "/github/workspace/clz/$2"
 
 if [ ! -f "$clz_file_path" ]; then
   echo "Error: CLZ file not found at $clz_file_path"
