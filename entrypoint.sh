@@ -8,8 +8,8 @@ clz_file="${project_name}.clz"
 
 dotnet dotnet tool install --global SimplSharp.Tool --version 0.2.0
 
-dotnet simplsharp targets -d $directory
+dotnet simplsharp targets -d /github/workspace/$directory
 
-dotnet build $1 -c $3 -o ./bin/$2
+dotnet build /github/workspace/$1 -c $3 -o ./bin/$2
 
 echo "clz_file=./bin/$2/$clz_file" >> $GITHUB_OUTPUT
