@@ -18,7 +18,7 @@ dotnet simplsharp targets -d /github/workspace/$directory
 
 dotnet build $csproj_file_path -c $3 -o /github/workspace/bin/$2
 
-dotnet simplsharp clz -p $csproj_file_path -a /github/workspace/bin/$2/$assembly_name 
+dotnet simplsharp clz -p "/github/workspace/$1" -a /github/workspace/bin/$2/$assembly_name 
 
 if [ ! -f "$clz_file_path" ]; then
   echo "Error: CLZ file not found at $clz_file_path"
