@@ -1,6 +1,8 @@
 # action.yml
 name: 'Simpl Sharp'
 description: 'Greet someone and record the time'
+icon: arrow-up-circle
+color: green
 inputs:
   project: 
     description: 'Project file targeting the simplsharp SDK'
