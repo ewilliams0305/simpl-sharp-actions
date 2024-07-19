@@ -35,5 +35,5 @@ fi
 
 echo "Created CLZ $clz_file_path"
 
-echo "clz_file=$clz_file_path" >> $GITHUB_OUTPUT
-echo "artifacts_path=clz/$2/$clz_file_name" >> $GITHUB_OUTPUT
+echo "clz_file=clz/$2/$clz_file_name" >> $GITHUB_OUTPUT
+echo "artifacts_path=clz/*/**.clz" >> $GITHUB_OUTPUT
