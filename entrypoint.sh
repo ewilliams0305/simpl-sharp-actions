@@ -25,9 +25,9 @@ echo "Target Assembly: $dll_file_path"
 
 mkdir -pv "/github/workspace/clz/$2"
 
-dotnet simplsharp clz -p "$csproj_file_path" -a "$dll_file_path" -d "/github/workspace/clz/$2"
+dotnet simplsharp clz -p $csproj_file_path -a $dll_file_path -d /github/workspace/clz/$2
 
-if [ ! -f "$clz_file_path" ]; then
+if [ ! -f $clz_file_path ]; then
   echo "Error: CLZ file not found at $clz_file_path"
   exit 1
 fi
@@ -35,4 +35,4 @@ fi
 echo "Created CLZ $clz_file_path"
 
 echo "clz_file=$clz_file_path" >> $GITHUB_OUTPUT
-echo "artifacts_path=/github/workspace/clz/ >> $GITHUB_OUTPUT
+echo "artifacts_path=/github/workspace/clz/" >> $GITHUB_OUTPUT
