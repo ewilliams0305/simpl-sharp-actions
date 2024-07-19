@@ -20,6 +20,7 @@ inputs:
 outputs:
   cpz_file:
     description: 'The location of the new CPZ file on the runner'
+    
   clz_file:
     description: 'The location of the new CLZ file on the runner'
 
