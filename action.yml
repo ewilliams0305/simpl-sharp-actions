@@ -3,12 +3,6 @@ name: 'Simpl Sharp'
 description: 'Greet someone and record the time'
 icon: arrow-up-circle
 color: green
-strategy:
-  matrix:
-    description: 'Project file targeting the simplsharp SDK'
-    required: true
-    default: './**.csproj'
-    
 inputs:
   project: 
     description: 'Project file targeting the simplsharp SDK'
@@ -24,11 +18,8 @@ inputs:
     default: 'Release'
     
 outputs:
-  cpz_file:
-    description: 'The location of the new CPZ file on the runner'
-
-  clz_file:
-    description: 'The location of the new CLZ file on the runner'
+  file_output:
+    description: 'The location of the new CPZ/CLZ file on the runner'
 
   artifacts_path:
     description: 'Directory path containing all compiled Simpl Sharp CPZ and CLZ files'
