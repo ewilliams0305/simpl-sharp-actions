@@ -7,11 +7,16 @@
 # Simpl Sharp Actions
 github action used to build Crestron SIMPL Sharp libraries and applications
 
+*Note only a single CLZ can be created using this action at the moment, see issues for roadmap*
+
+[Usage Example - Simpl Sharp Targets](https://github.com/ewilliams0305/simpl-sharp-targets/blob/61fa7543ec0da7afba4b86704b4b014d96cefe12/.github/workflows/simpl-sharp.yml)
+
 ## Inputs
 
 ## `project`
 
 **Required** File path or glob for the csproj file to compile `"./source/**.csproj"`.
+*Note currently only a fullpath to the .csproj file is functional*
 
 ## Outputs
 
@@ -24,9 +29,25 @@ The file path for the generated CLZ.
 
 The file path for the generated CPZ.
 **note this will be null if the target project is a SimplSharp library**
+*note not currently supported*
 
 ## Example usage
 
-uses: actions/simpl-sharp-actions@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+```yaml
+- name: Simpl Sharp
+  uses: ewilliams0305/simpl-sharp-actions@v0.0.18
+  id: clz 
+  with: 
+    project: example/SimplSharp.Action.Clz/SimplSharp.Action.Clz.csproj
+    targets: net472
+    configuration: Release
+
+- name: Display CLZ Output path
+  run: echo ${{ steps.clz.outputs.clz_file }}
+
+- name: Upload CLZ Artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: clz_files
+    path: ./${{ steps.clz.outputs.artifacts_path }}
+```
