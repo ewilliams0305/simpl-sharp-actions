@@ -3,6 +3,12 @@ name: 'Simpl Sharp'
 description: 'Greet someone and record the time'
 icon: arrow-up-circle
 color: green
+strategy:
+  matrix:
+    description: 'Project file targeting the simplsharp SDK'
+    required: true
+    default: './**.csproj'
+    
 inputs:
   project: 
     description: 'Project file targeting the simplsharp SDK'
