@@ -15,8 +15,8 @@ clz_file_path="/github/workspace/clz/$2/$clz_file_name"
 dll_file_path="/github/workspace/bin/$2/$dll_file_name"
 
 # Query project file for required package references and determine if we should create a CPZ or CLZ
-library_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Library").*' "$csproj_file")
-program_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Program").*' "$csproj_file")
+library_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Library").*' "$csproj_file_path")
+program_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Program").*' "$csproj_file_path")
 
 if [[ -n "$program_package" ]]; then
   project_type="cpz"
