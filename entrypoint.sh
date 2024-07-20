@@ -15,10 +15,9 @@ clz_file_path="/github/workspace/clz/$2/$clz_file_name"
 dll_file_path="/github/workspace/bin/$2/$dll_file_name"
 
 # Query project file for required package references and determine if we should create a CPZ or CLZ
-library_package=$(xmlstarlet sel -t -v "//PackageReference[@Include='Crestron.SimplSharp.SDK.Library']" "$csproj_file_path")
-program_package=$(xmlstarlet sel -t -v "//PackageReference[@Include='Crestron.SimplSharp.SDK.Program']" "$csproj_file_path")
+library_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Library").*' "$csproj_file")
+program_package=$(grep -oP '(?<=<PackageReference Include="Crestron.SimplSharp.SDK.Program").*' "$csproj_file")
 
-# Determine the output string based on the presence of the packages
 if [[ -n "$program_package" ]]; then
   project_type="cpz"
 elif [[ -n "$library_package" && -z "$program_package" ]]; then
@@ -28,7 +27,7 @@ else
   exit 1
 fi
 
-echo "Target project is $project_type"
+echo "Target project should produce .$project_type"
 
 dotnet dotnet tool install --local SimplSharp.Tool --version 0.2.0 --create-manifest-if-needed 
 
